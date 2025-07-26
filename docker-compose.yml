@@ -19,6 +19,9 @@ services:
       - DJANGO_MYSQL_HOST=db
       - DJANGO_MYSQL_PORT=3306
       - DJANGO_REDIS_URL=redis:6379
+      - DJANGO_REDIS_HOST=redis
+      - DJANGO_REDIS_PORT=6379
+      - DJANGO_REDIS_DB=0
 
   db:
     image: mysql:8.0

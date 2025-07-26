@@ -11,4 +11,5 @@ RUN pip install --upgrade pip  && \
         pip cache purge
         
 ADD . .
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "liangziduidie.wsgi:application"]
+RUN chmod +x /home/liangziduidie_demo/start.sh
+ENTRYPOINT ["/home/liangziduidie_demo/start.sh"]

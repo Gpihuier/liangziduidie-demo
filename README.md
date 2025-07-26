@@ -19,4 +19,22 @@
 
 ### 说明
 
-项目搭建参考开源项目： https://github.com/liangliangyy/DjangoBlog
+项目搭建和部分写法参考开源项目： https://github.com/liangliangyy/DjangoBlog
+
+缓存一致性参考连接：https://mp.weixin.qq.com/s/h1oi92BbdFdTGtey0wQLLQ
+
+缓存策略：
+- 缓存 aside 模式
+- 缓存更新策略：延迟双删，确保最终一致性
+
+#### 项目启动
+
+```bash
+docker-compose --file ./docker-compose.yml up -d
+```
+
+#### 项目访问
+
+- http://localhost:8000/blog/post/<int:post_id>/view/<str:username>/ 访问文章详情页，统计阅读量（http://localhost:8000/blog/post/1/view/wang/）
+
+- http://localhost:8000/blog/post/<int:post_id>/stats/ 访问文章统计页，展示阅读量数据（http://localhost:8000/blog/post/1/stats/）

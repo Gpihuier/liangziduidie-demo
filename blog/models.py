@@ -11,7 +11,7 @@ class Post(BashModel):
     content = models.TextField('内容')
 
 class PostReadCount(BashModel):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='read_counts')
+    post_id = models.IntegerField('文章ID')
     username = models.CharField('用户名', max_length=30, default='', blank=True)
     read_count = models.IntegerField('阅读量', default=0)
     

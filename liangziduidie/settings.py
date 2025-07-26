@@ -89,13 +89,10 @@ DATABASES = {
     }
 }
 
-CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-            'LOCATION': f'redis://{os.environ.get("DJANGO_REDIS_URL")}',
-        }
-}
-
+# Redis Cache Configuration
+REDIS_HOST = os.environ.get("DJANGO_REDIS_HOST") or 'redis'
+REDIS_PORT = os.environ.get("DJANGO_REDIS_PORT") or 6379
+REDIS_DB = os.environ.get("DJANGO_REDIS_DB") or 0
 
 
 # Password validation
