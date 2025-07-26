@@ -4,7 +4,7 @@ services:
   backend:
     build: .
     restart: always
-    command: gunicorn --bind 0.0.0.0:8000 liangziduidie.wsgi:application
+    command: gunicorn --bind 0.0.0.0:8000 --reload liangziduidie.wsgi:application
     volumes:
       - .:/home/liangziduidie_demo
     ports:
@@ -13,7 +13,7 @@ services:
       - db
       - redis
     environment:
-      - DJANGO_MYSQL_DATABASE=langziduidie
+      - DJANGO_MYSQL_DATABASE=liangziduidie
       - DJANGO_MYSQL_USER=root
       - DJANGO_MYSQL_PASSWORD=root
       - DJANGO_MYSQL_HOST=db
